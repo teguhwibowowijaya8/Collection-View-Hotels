@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HotelImageCardCollectionCell" customModule="Hotels" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="302" height="142"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="302" height="142"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFv-bz-9n5">
+                        <rect key="frame" x="0.0" y="0.0" width="302" height="142"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PeY-DM-ruL">
+                                <rect key="frame" x="0.0" y="1" width="302" height="140.33333333333334"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pwL-iV-AN7">
+                                <rect key="frame" x="12" y="89.333333333333329" width="278" height="40.666666666666671"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ynh-Qa-LIS">
+                                        <rect key="frame" x="0.0" y="0.0" width="216" height="40.666666666666664"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKC-63-PlG">
+                                                <rect key="frame" x="0.0" y="0.0" width="216" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgI-tz-i3L">
+                                                <rect key="frame" x="0.0" y="20.333333333333343" width="216" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k85-HB-NU2" customClass="RatingLabel" customModule="Hotels" customModuleProvider="target">
+                                        <rect key="frame" x="224" y="20.333333333333343" width="54" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Ynh-Qa-LIS" firstAttribute="width" secondItem="k85-HB-NU2" secondAttribute="width" multiplier="4:1" id="CiS-On-dhN"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PeY-DM-ruL" secondAttribute="trailing" id="Cyt-UR-sOk"/>
+                            <constraint firstAttribute="bottom" secondItem="pwL-iV-AN7" secondAttribute="bottom" constant="12" id="FdU-Uk-3EX"/>
+                            <constraint firstAttribute="trailing" secondItem="pwL-iV-AN7" secondAttribute="trailing" constant="12" id="KAz-WQ-Gx1"/>
+                            <constraint firstItem="pwL-iV-AN7" firstAttribute="leading" secondItem="ZFv-bz-9n5" secondAttribute="leading" constant="12" id="Ocu-5s-eqw"/>
+                            <constraint firstAttribute="bottom" secondItem="PeY-DM-ruL" secondAttribute="bottom" id="PRe-pa-8kP"/>
+                            <constraint firstItem="pwL-iV-AN7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZFv-bz-9n5" secondAttribute="top" constant="12" id="dlb-1f-lbQ"/>
+                            <constraint firstItem="PeY-DM-ruL" firstAttribute="top" secondItem="ZFv-bz-9n5" secondAttribute="top" id="lq3-mQ-gJb"/>
+                            <constraint firstItem="PeY-DM-ruL" firstAttribute="leading" secondItem="ZFv-bz-9n5" secondAttribute="leading" id="w88-q6-g2A"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ZFv-bz-9n5" secondAttribute="trailing" id="BtL-uj-dVT"/>
+                <constraint firstItem="ZFv-bz-9n5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Qn8-pr-PaD"/>
+                <constraint firstItem="ZFv-bz-9n5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SJD-Qp-nHl"/>
+                <constraint firstAttribute="bottom" secondItem="ZFv-bz-9n5" secondAttribute="bottom" id="a5w-bm-Hkz"/>
+            </constraints>
+            <size key="customSize" width="302" height="142"/>
+            <connections>
+                <outlet property="hotelCardView" destination="ZFv-bz-9n5" id="WVe-cQ-cZd"/>
+                <outlet property="hotelImageView" destination="PeY-DM-ruL" id="Dqr-Sq-UNd"/>
+                <outlet property="hotelNameLabel" destination="aKC-63-PlG" id="1KH-uH-uyG"/>
+                <outlet property="hotelPriceLabel" destination="wgI-tz-i3L" id="XwA-aD-us1"/>
+                <outlet property="hotelRatingLabel" destination="k85-HB-NU2" id="lhZ-9o-hxr"/>
+            </connections>
+            <point key="canvasLocation" x="183.20610687022901" y="52.112676056338032"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
