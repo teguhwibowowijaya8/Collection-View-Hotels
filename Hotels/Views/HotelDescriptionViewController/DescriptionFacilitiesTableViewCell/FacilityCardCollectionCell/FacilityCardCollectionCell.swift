@@ -32,22 +32,31 @@ class FacilityCardCollectionCell: UICollectionViewCell {
     }
     
     func setupStarImages(rating: Double) {
-        print(rating)
         switch rating {
         case 0.5...1:
             starImageOne.image = UIImage(systemName: "star.fill")
+            starImageTwo.image = UIImage(systemName: "star")
+            starImageThree.image = UIImage(systemName: "star")
+            starImageFour.image = UIImage(systemName: "star")
+            starImageFive.image = UIImage(systemName: "star")
         case 1.5...2:
             starImageOne.image = UIImage(systemName: "star.fill")
             starImageTwo.image = UIImage(systemName: "star.fill")
+            starImageThree.image = UIImage(systemName: "star")
+            starImageFour.image = UIImage(systemName: "star")
+            starImageFive.image = UIImage(systemName: "star")
         case 2.5...3:
             starImageOne.image = UIImage(systemName: "star.fill")
             starImageTwo.image = UIImage(systemName: "star.fill")
             starImageThree.image = UIImage(systemName: "star.fill")
+            starImageFour.image = UIImage(systemName: "star")
+            starImageFive.image = UIImage(systemName: "star")
         case 3.5...4:
             starImageOne.image = UIImage(systemName: "star.fill")
             starImageTwo.image = UIImage(systemName: "star.fill")
             starImageThree.image = UIImage(systemName: "star.fill")
             starImageFour.image = UIImage(systemName: "star.fill")
+            starImageFive.image = UIImage(systemName: "star")
         case 4.5...5.0:
             starImageOne.image = UIImage(systemName: "star.fill")
             starImageTwo.image = UIImage(systemName: "star.fill")
