@@ -32,44 +32,59 @@ class FacilityCardCollectionCell: UICollectionViewCell {
     }
     
     func setupStarImages(rating: Double) {
+        let decimalRating = rating.truncatingRemainder(dividingBy: 1)
+        let decimalImageName = starImageTruncate(decimalRating)
         switch rating {
-        case 0.5...1:
-            starImageOne.image = UIImage(systemName: "star.fill")
+        case 0.0...1:
+            starImageOne.image = UIImage(systemName: decimalImageName)
             starImageTwo.image = UIImage(systemName: "star")
             starImageThree.image = UIImage(systemName: "star")
             starImageFour.image = UIImage(systemName: "star")
             starImageFive.image = UIImage(systemName: "star")
-        case 1.5...2:
+        case 1.5...2.0:
             starImageOne.image = UIImage(systemName: "star.fill")
-            starImageTwo.image = UIImage(systemName: "star.fill")
+            starImageTwo.image = UIImage(systemName: decimalImageName)
             starImageThree.image = UIImage(systemName: "star")
             starImageFour.image = UIImage(systemName: "star")
             starImageFive.image = UIImage(systemName: "star")
-        case 2.5...3:
+        case 2.1...3.0:
             starImageOne.image = UIImage(systemName: "star.fill")
             starImageTwo.image = UIImage(systemName: "star.fill")
-            starImageThree.image = UIImage(systemName: "star.fill")
+            starImageThree.image = UIImage(systemName: decimalImageName)
             starImageFour.image = UIImage(systemName: "star")
             starImageFive.image = UIImage(systemName: "star")
-        case 3.5...4:
+        case 3.1...4.0:
             starImageOne.image = UIImage(systemName: "star.fill")
             starImageTwo.image = UIImage(systemName: "star.fill")
             starImageThree.image = UIImage(systemName: "star.fill")
-            starImageFour.image = UIImage(systemName: "star.fill")
+            starImageFour.image = UIImage(systemName: decimalImageName)
             starImageFive.image = UIImage(systemName: "star")
-        case 4.5...5.0:
+        case 4.1...5.0:
             starImageOne.image = UIImage(systemName: "star.fill")
             starImageTwo.image = UIImage(systemName: "star.fill")
             starImageThree.image = UIImage(systemName: "star.fill")
             starImageFour.image = UIImage(systemName: "star.fill")
-            starImageFive.image = UIImage(systemName: "star.fill")
+            starImageFive.image = UIImage(systemName: decimalImageName)
         default:
             break
         }
     }
     
+    func starImageTruncate(_ truncateRating: Double) -> String {
+        switch truncateRating {
+        case 0.0...0.3:
+            return "star"
+        case 0.4...0.7:
+            return "star.leadinghalf.filled"
+        case 0.8...:
+            return "star.fill"
+        default:
+            return "star"
+        }
+    }
+    
     func setupComponentAttributes() {
-        facilityCardView.backgroundColor = UIColor(red: 0.121, green: 0.117, blue: 0.118, alpha: 0.25)
+        facilityCardView.backgroundColor = UIColor(red: 0.121, green: 0.117, blue: 0.118, alpha: 0.15)
         facilityCardView.layer.cornerRadius = 10
         
         facilityImageView.layer.cornerRadius = 10
@@ -79,6 +94,7 @@ class FacilityCardCollectionCell: UICollectionViewCell {
         facilityNameLabel.font = .boldSystemFont(ofSize: 16)
         facilityNameLabel.adjustsFontSizeToFitWidth = true
         
+        facilityDescriptionLabel.numberOfLines = 2
         facilityDescriptionLabel.textColor = .darkGray
         facilityDescriptionLabel.adjustsFontSizeToFitWidth = true
     }
