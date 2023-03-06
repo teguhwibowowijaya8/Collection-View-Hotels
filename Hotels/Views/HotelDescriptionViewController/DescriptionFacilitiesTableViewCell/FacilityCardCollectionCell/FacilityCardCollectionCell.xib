@@ -20,6 +20,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHQ-Fl-sk3">
                         <rect key="frame" x="0.0" y="0.0" width="302" height="124"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJV-vR-fZx">
+                                <rect key="frame" x="10" y="10" width="104" height="104"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xaF-GW-tGn">
                                 <rect key="frame" x="10" y="9.6666666666666643" width="104" height="103.66666666666667"/>
                                 <constraints>
@@ -69,12 +73,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="rJV-vR-fZx" firstAttribute="height" secondItem="xaF-GW-tGn" secondAttribute="height" id="18Q-q2-mWg"/>
+                            <constraint firstAttribute="bottom" secondItem="rJV-vR-fZx" secondAttribute="bottom" constant="10" id="1EH-On-pnS"/>
                             <constraint firstItem="hsy-EP-Acy" firstAttribute="top" secondItem="sHQ-Fl-sk3" secondAttribute="top" constant="10" id="5Mu-KF-cgi"/>
                             <constraint firstItem="xaF-GW-tGn" firstAttribute="top" secondItem="sHQ-Fl-sk3" secondAttribute="top" constant="10" id="IBG-Dm-8ib"/>
                             <constraint firstAttribute="bottom" secondItem="xaF-GW-tGn" secondAttribute="bottom" constant="10" id="YCZ-Z1-Xss"/>
                             <constraint firstItem="hsy-EP-Acy" firstAttribute="leading" secondItem="xaF-GW-tGn" secondAttribute="trailing" constant="10" id="dhq-rb-vEy"/>
                             <constraint firstAttribute="trailing" secondItem="hsy-EP-Acy" secondAttribute="trailing" constant="10" id="fjh-wd-FaS"/>
+                            <constraint firstItem="rJV-vR-fZx" firstAttribute="width" secondItem="xaF-GW-tGn" secondAttribute="width" id="iU9-D2-MNZ"/>
                             <constraint firstItem="xaF-GW-tGn" firstAttribute="leading" secondItem="sHQ-Fl-sk3" secondAttribute="leading" constant="10" id="pwV-af-tnK"/>
+                            <constraint firstItem="rJV-vR-fZx" firstAttribute="top" secondItem="sHQ-Fl-sk3" secondAttribute="top" constant="10" id="rs4-h4-IkY"/>
+                            <constraint firstItem="rJV-vR-fZx" firstAttribute="leading" secondItem="sHQ-Fl-sk3" secondAttribute="leading" constant="10" id="tGi-9o-VOG"/>
                             <constraint firstAttribute="bottom" secondItem="hsy-EP-Acy" secondAttribute="bottom" constant="10" id="yaR-uM-dkM"/>
                         </constraints>
                     </view>
@@ -93,6 +102,7 @@
                 <outlet property="facilityDescriptionLabel" destination="9kY-UF-Yli" id="7vl-ij-CUM"/>
                 <outlet property="facilityImageView" destination="xaF-GW-tGn" id="S6k-8O-sTA"/>
                 <outlet property="facilityNameLabel" destination="efP-cd-kxW" id="yPz-Ec-sb0"/>
+                <outlet property="imageShadowView" destination="rJV-vR-fZx" id="Huj-WC-Ugl"/>
                 <outlet property="starsStackView" destination="rTx-ID-8I4" id="5i8-hh-OxW"/>
             </connections>
             <point key="canvasLocation" x="200" y="45.774647887323944"/>

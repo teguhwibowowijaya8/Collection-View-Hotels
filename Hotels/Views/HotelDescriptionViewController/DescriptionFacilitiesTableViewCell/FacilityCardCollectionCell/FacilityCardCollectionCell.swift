@@ -10,6 +10,8 @@ import UIKit
 class FacilityCardCollectionCell: UICollectionViewCell {
     static let identifier = "FacilityCardCollectionCell"
     
+    
+    @IBOutlet weak var imageShadowView: UIView!
     @IBOutlet weak var facilityCardView: UIView!
     @IBOutlet weak var facilityImageView: UIImageView!
     @IBOutlet weak var facilityNameLabel: UILabel!
@@ -23,6 +25,7 @@ class FacilityCardCollectionCell: UICollectionViewCell {
         facilityNameLabel.text = facility.name
         facilityDescriptionLabel.text = facility.briefDescription
 
+        setupImageShadowView()
         setupStarsStackView(rating: facility.rating)
         setupComponentAttributes()
     }
@@ -35,6 +38,17 @@ class FacilityCardCollectionCell: UICollectionViewCell {
         starsStackView.arrangedSubviews.forEach {subview in
             subview.removeFromSuperview()
         }
+    }
+    
+    func setupImageShadowView() {
+        imageShadowView.layer.cornerRadius = 10
+        imageShadowView.layer.borderWidth = 3
+        imageShadowView.layer.borderColor = UIColor.black.cgColor
+        
+        imageShadowView.layer.shadowColor = UIColor.black.cgColor
+        imageShadowView.layer.shadowOpacity = 1
+        imageShadowView.layer.shadowOffset = .zero
+        imageShadowView.layer.shadowRadius = 2
     }
     
     func setupStarsStackView(rating: Double, maxRating: Int = 5) {
