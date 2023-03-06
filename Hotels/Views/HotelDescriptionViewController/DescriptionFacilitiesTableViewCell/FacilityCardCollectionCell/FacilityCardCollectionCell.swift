@@ -14,59 +14,52 @@ class FacilityCardCollectionCell: UICollectionViewCell {
     @IBOutlet weak var facilityImageView: UIImageView!
     @IBOutlet weak var facilityNameLabel: UILabel!
     @IBOutlet weak var facilityDescriptionLabel: UILabel!
+    @IBOutlet weak var starsStackView: UIStackView!
+    private lazy var starsImageViews = [UIImageView]()
     
-    
-    @IBOutlet weak var starImageOne: UIImageView!
-    @IBOutlet weak var starImageTwo: UIImageView!
-    @IBOutlet weak var starImageThree: UIImageView!
-    @IBOutlet weak var starImageFour: UIImageView!
-    @IBOutlet weak var starImageFive: UIImageView!
     
     func setupCell(facility: Facility) {
         facilityImageView.image = UIImage(named: "Hotel")
         facilityNameLabel.text = facility.name
         facilityDescriptionLabel.text = facility.briefDescription
-        setupStarImages(rating: facility.rating)
-        
+
+        setupStarsStackView(rating: facility.rating)
         setupComponentAttributes()
     }
     
-    func setupStarImages(rating: Double) {
-        let decimalRating = rating.truncatingRemainder(dividingBy: 1)
-        let decimalImageName = starImageTruncate(decimalRating)
-        switch rating {
-        case 0.0...1:
-            starImageOne.image = UIImage(systemName: decimalImageName)
-            starImageTwo.image = UIImage(systemName: "star")
-            starImageThree.image = UIImage(systemName: "star")
-            starImageFour.image = UIImage(systemName: "star")
-            starImageFive.image = UIImage(systemName: "star")
-        case 1.5...2.0:
-            starImageOne.image = UIImage(systemName: "star.fill")
-            starImageTwo.image = UIImage(systemName: decimalImageName)
-            starImageThree.image = UIImage(systemName: "star")
-            starImageFour.image = UIImage(systemName: "star")
-            starImageFive.image = UIImage(systemName: "star")
-        case 2.1...3.0:
-            starImageOne.image = UIImage(systemName: "star.fill")
-            starImageTwo.image = UIImage(systemName: "star.fill")
-            starImageThree.image = UIImage(systemName: decimalImageName)
-            starImageFour.image = UIImage(systemName: "star")
-            starImageFive.image = UIImage(systemName: "star")
-        case 3.1...4.0:
-            starImageOne.image = UIImage(systemName: "star.fill")
-            starImageTwo.image = UIImage(systemName: "star.fill")
-            starImageThree.image = UIImage(systemName: "star.fill")
-            starImageFour.image = UIImage(systemName: decimalImageName)
-            starImageFive.image = UIImage(systemName: "star")
-        case 4.1...5.0:
-            starImageOne.image = UIImage(systemName: "star.fill")
-            starImageTwo.image = UIImage(systemName: "star.fill")
-            starImageThree.image = UIImage(systemName: "star.fill")
-            starImageFour.image = UIImage(systemName: "star.fill")
-            starImageFive.image = UIImage(systemName: decimalImageName)
-        default:
-            break
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        starsImageViews = [UIImageView]()
+        
+        starsStackView.arrangedSubviews.forEach {subview in
+            subview.removeFromSuperview()
+        }
+    }
+    
+    func setupStarsStackView(rating: Double, maxRating: Int = 5) {
+        let firstRating = Int(floor(rating))
+        let remaiderRating = rating.truncatingRemainder(dividingBy: 1)
+        
+        for index in 1...maxRating {
+            let starImageView = UIImageView()
+            starImageView.contentMode = .scaleAspectFit
+            starImageView.tintColor = .yellow
+            
+            if index <= firstRating {
+                starImageView.image = UIImage(systemName: "star.fill")
+                starImageView.restorationIdentifier = "star.fill"
+            } else if index == firstRating + 1 {
+                let imageName = starImageTruncate(remaiderRating)
+                starImageView.image = UIImage(systemName: imageName)
+                starImageView.restorationIdentifier = imageName
+            } else {
+                starImageView.image = UIImage(systemName: "star")
+                starImageView.restorationIdentifier = "star"
+            }
+            
+            starsImageViews.append(starImageView)
+            starsStackView.addArrangedSubview(starsImageViews[index-1])
         }
     }
     
@@ -76,7 +69,7 @@ class FacilityCardCollectionCell: UICollectionViewCell {
             return "star"
         case 0.4...0.7:
             return "star.leadinghalf.filled"
-        case 0.8...:
+        case 0.8..<1.0:
             return "star.fill"
         default:
             return "star"
@@ -94,9 +87,10 @@ class FacilityCardCollectionCell: UICollectionViewCell {
         facilityNameLabel.font = .boldSystemFont(ofSize: 16)
         facilityNameLabel.adjustsFontSizeToFitWidth = true
         
-        facilityDescriptionLabel.numberOfLines = 2
+        facilityDescriptionLabel.font = .systemFont(ofSize: 14)
+        facilityDescriptionLabel.numberOfLines = 1
         facilityDescriptionLabel.textColor = .darkGray
         facilityDescriptionLabel.adjustsFontSizeToFitWidth = true
     }
-
+    
 }

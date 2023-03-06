@@ -23,6 +23,7 @@ class DescriptionFacilitiesTableViewCell: UITableViewCell {
         flowLayout.minimumLineSpacing = 10
         flowLayout.scrollDirection = .horizontal
         
+        hotelFacilitiesCollectionView.showsHorizontalScrollIndicator = false
         hotelFacilitiesCollectionView.collectionViewLayout = flowLayout
         hotelFacilitiesCollectionView.delegate = self
         hotelFacilitiesCollectionView.dataSource = self
